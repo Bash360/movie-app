@@ -1,1 +1,1 @@
-export const localEndpoint = 'http://localhost:5000/api/v1';
+export const localEndpoint = 'https://movie-catalog-3vc4.onrender.com/api/v1';
