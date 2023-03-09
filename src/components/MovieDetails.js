@@ -19,7 +19,7 @@ const MovieDetails = () => {
       setMovie(movie.data);
 }
     getMovie();
-  }, []);
+  }, [id]);
 
 
   return (
