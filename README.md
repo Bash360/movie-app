@@ -18,4 +18,5 @@ Builds the app for production to the `build` folder.\
 It correctly bundles React in production mode and optimizes the build for the best performance.
 
 # site URL
-- <https://dev--tranquil-selkie-41ddf5.netlify.app/>
+
+- <https://dev--starlit-basbousa-52dde1.netlify.app>
