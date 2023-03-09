@@ -17,7 +17,7 @@ const Movies = () => {
       const searchMovies = async () => {
         const movies = await axios.get(endpoint);
         setMovies(movies.data);
-      
+        setCount(count);
 
       }
       await searchMovies();
@@ -58,7 +58,7 @@ const Movies = () => {
       { movies.length >0?
         movies.map(movie => {
           return <Movie key={movie._id} id={movie._id} title={ movie.title} genre={movie.genre} language={movie.language} />
-        }):'No Movie'
+        }):'No Movie!!!'
       }
       </div>
       </>
