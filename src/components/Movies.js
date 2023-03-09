@@ -9,6 +9,7 @@ const Movies = () => {
   const [movies, setMovies] = useState([]);
     const [search, setSearch] = useState('');
   const [searchType, setSearchType] = useState('');
+  const [count,setCount]=useState(0);
   
   const searchIt = async (e) => {
     if (searchType && search) {
@@ -26,8 +27,9 @@ const Movies = () => {
   useEffect(() => {
   
     const getMovies = async () => {
-      const response = await axios.get(`${localEndpoint}/movies?skip=0&limit=100`);
-      setMovies(response.data);
+      const response = await axios.get(`${localEndpoint}/movies?skip=0&limit=10`);
+      setMovies(response.data.movies);
+      setCount(response.data.count)
     }
     getMovies();
 

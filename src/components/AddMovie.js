@@ -53,7 +53,7 @@ const AddMovie = () => {
         {created?   <div className="alert alert-success" role="alert">
   movie added successfully!!!
 </div>:''}
-   
+      
      
       <form onSubmit={submit} className="was-validated">
         <div className="form-group">
@@ -119,9 +119,12 @@ const AddMovie = () => {
 </div>
         
        
-         <input type="submit"  className="btn btn-primary" value="submit" /> 
+        <input type="submit" className="btn btn-primary"  value="submit" />  
+         
       </form>
+
     </div>
+    
   );
 }
 
