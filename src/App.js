@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Routes, } from 'react-router-dom';
 import Nav from './components/Nav';
 
 
+
 function App() {
   return (
     <Router>
@@ -14,9 +15,9 @@ function App() {
 
      
         <Routes>
-          <Route path='/'  exact   element={<Movies />} />
+          <Route path='/'  exact    element={<Movies />} />
       
-        <Route path='/addmovie'   element={<AddMovie />} />
+        <Route path='/addmovie'    element={<AddMovie />} />
           <Route path='/moviedetails'   element={< MovieDetails />} />
           </Routes>
       </div>

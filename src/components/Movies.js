@@ -4,12 +4,17 @@ import { localEndpoint } from '../constants';
 import axios from 'axios';
 
 
+
 const Movies = () => {
   
   const [movies, setMovies] = useState([]);
     const [search, setSearch] = useState('');
   const [searchType, setSearchType] = useState('');
-  const [count,setCount]=useState(0);
+  // const [count, setCount] = useState(0);
+  const [gotten, setGotten] = useState(false);
+  
+
+
   
   const searchIt = async (e) => {
     if (searchType && search) {
@@ -17,7 +22,7 @@ const Movies = () => {
       const searchMovies = async () => {
         const movies = await axios.get(endpoint);
         setMovies(movies.data);
-        setCount(count);
+        // setCount(0);
 
       }
       await searchMovies();
@@ -29,7 +34,9 @@ const Movies = () => {
     const getMovies = async () => {
       const response = await axios.get(`${localEndpoint}/movies?skip=0&limit=10`);
       setMovies(response.data.movies);
-      setCount(response.data.count)
+      // setCount(response.data.count);
+      setGotten(true);
+
     }
     getMovies();
 
@@ -54,13 +61,22 @@ const Movies = () => {
       </div> 
      
         </form>
-    <div className='d-flex flex-wrap'>
-      { movies.length >0?
+    <div className={`${movies.length >0 && gotten ? "d-flex flex-wrap":""} `} >
+      { movies.length >0 && gotten ?
         movies.map(movie => {
           return <Movie key={movie._id} id={movie._id} title={ movie.title} genre={movie.genre} language={movie.language} />
-        }):'No Movie!!!'
-      }
+        }):<div className=" text-center"><p className='spinner-border text-success'></p></div>
+        }
+     
       </div>
+      {
+        movies.length === 0 && gotten &&
+        <div className='text-center'>
+            <p>No Movies!!!</p>
+        </div>
+}
+      
+    
       </>
   );
 }
